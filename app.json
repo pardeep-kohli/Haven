@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Haven_Contracting",
+    "name": "Haven Contracting",
     "slug": "Haven_Contracting",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -21,10 +21,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.idigital.haven"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "9655f77c-2222-4b74-917c-cfed7520a2d1"
+      }
     }
   }
 }
