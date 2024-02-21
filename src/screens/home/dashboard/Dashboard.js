@@ -1,15 +1,119 @@
-import { StyleSheet, Text, View, ScrollView } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
 import React from "react";
 import Header from "../../../components/Header";
 import InformationCard from "../../../components/cards/InformationCard";
 import { colors } from "../../../assets/themes/colors";
+import { AntDesign } from "@expo/vector-icons";
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
 import { SafeAreaView } from "react-native-safe-area-context";
 import DuePayment from "../../../components/cards/DuePayment";
+const data = [
+  {
+    col1: "Row 1 Col 1",
+    col2: "Row 1 Col 2",
+    col3: "Row 1 Col 3",
+    col4: "Row 1 Col 4",
+  },
+  {
+    col1: "Row 2 Col 1",
+    col2: "Row 2 Col 2",
+    col3: "Row 2 Col 3",
+    col4: "Row 2 Col 4",
+  },
+];
+const DataTable = ({ data }) => {
+  return (
+    <View
+      style={{
+        borderRadius: 20,
+        backgroundColor: colors.white,
+        paddingVertical: 20,
+        borderWidth: 2,
+        borderColor: colors.light_grey,
+      }}
+    >
+      <View style={{ flexDirection: "row", paddingBottom: 10 }}>
+        <View
+          style={{
+            width: 3,
+            backgroundColor: colors.accent,
+            borderTopRightRadius: 5,
+            borderBottomRightRadius: 5,
+          }}
+        />
+        <Text
+          style={{
+            marginLeft: 20,
+            marginBottom: 5,
+            fontFamily: "SemiBold",
+            fontSize: hp(1.8),
+          }}
+        >
+          Due Payments
+        </Text>
+      </View>
+      <ScrollView horizontal={true}>
+        <View style={styles.container}>
+          {/* Render Table Header */}
+          <View style={[styles.row, styles.header]}>
+            <View style={styles.column}>
+              <Text style={styles.headText}>Title</Text>
+            </View>
+            <View style={styles.column}>
+              <Text style={styles.headText}>Client Name</Text>
+            </View>
+            <View style={styles.column}>
+              <Text style={styles.headText}>Due Date</Text>
+            </View>
+            <View style={styles.column}>
+              <Text style={styles.headText}>Action</Text>
+            </View>
+          </View>
 
+          {/* Render Table Data */}
+          {data.map((rowData, index) => (
+            <View key={index} style={styles.row}>
+              <View style={styles.column}>
+                <Text style={styles.resultData}>{rowData.col1}</Text>
+              </View>
+              <View style={styles.column}>
+                <Text style={styles.resultData}>{rowData.col2}</Text>
+              </View>
+              <View style={styles.column}>
+                <Text style={styles.resultData}>{rowData.col3}</Text>
+              </View>
+              <TouchableOpacity activeOpacity={0.6} style={styles.column}>
+                <View
+                  style={{
+                    height: hp(3.2),
+                    width: hp(3.2),
+                    backgroundColor: colors.orange,
+                    borderRadius: 5,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <AntDesign name="eyeo" size={18} color={colors.white} />
+                </View>
+                {/* <Text style={styles.resultData}>{rowData.col4}</Text> */}
+                <View></View>
+              </TouchableOpacity>
+            </View>
+          ))}
+        </View>
+      </ScrollView>
+    </View>
+  );
+};
 export default function Dashboard({ navigation }) {
   return (
     <SafeAreaView style={{ backgroundColor: colors.white, flex: 1 }}>
@@ -68,77 +172,11 @@ export default function Dashboard({ navigation }) {
             backgroundColor: colors.white,
             marginTop: 20,
             // borderWidth:1,
-            elevation:3
+            elevation: 3,
           }}
-        >
-          <View
-            style={{
-              borderTopLeftRadius: 10,
-              borderTopRightRadius: 10,
-              paddingVertical: 20,
-            }}
-          >
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <View
-                style={{
-                  height: 30,
-                  width: 3,
-                  backgroundColor: colors.green,
-                  borderTopRightRadius: 10,
-                  borderBottomRightRadius: 10,
-                }}
-              />
-              <Text
-                style={{
-                  fontFamily: "SemiBold",
-                  fontSize: hp(2),
-                  marginLeft: 15,
-                }}
-              >
-                Top Due Payments
-              </Text>
-            </View>
-          </View>
-          <View
-            style={{
-              flexDirection: "row",
-              justifyContent: "space-between",
-              paddingHorizontal: 20,
-              paddingVertical: 15,
-              borderTopWidth: 0.5,
-              borderBottomWidth: 0.5,
-              backgroundColor:colors.light_grey
-            }}
-          >
-            <Text
-              style={{
-                fontFamily: "Medium",
-                textTransform: "uppercase",
-                color: colors.black,
-              }}
-            >
-              Title
-            </Text>
-            <Text
-              style={{
-                fontFamily: "Medium",
-                textTransform: "uppercase",
-                color: colors.black,
-              }}
-            >
-              Client Name
-            </Text>
-          </View>
-          <View style={{paddingTop:10}}> 
-          <DuePayment invoice={"#INV00001"} amount={16000} client={"Ricky"} />
-          <DuePayment invoice={"#INV00002"} amount={9000} client={"Marena"} />
-          <DuePayment invoice={"#INV00003"} amount={17000} client={"Sam"} />
-          <DuePayment invoice={"#INV00004"} amount={2500} client={"Monty"} />
-          <DuePayment invoice={"#INV00005"} amount={7000} client={"Daniel"} />
-          <DuePayment invoice={"#INV00006"} amount={365} client={"Tim"} />
-          </View>
-        </View>
-      <View style={{height:20}}/>
+        ></View>
+        <DataTable data={data} />
+        <View style={{ height: 20 }} />
       </ScrollView>
     </SafeAreaView>
   );
@@ -149,5 +187,34 @@ const styles = StyleSheet.create({
     fontFamily: "SemiBold",
     fontSize: hp(2.2),
     marginVertical: 5,
+  },
+  textContainer: {
+    flexDirection: "row",
+  },
+  headText: {
+    fontFamily: "Medium",
+  },
+  container: {
+    flexDirection: "column",
+  },
+  row: {
+    flexDirection: "row",
+    borderBottomWidth: 1,
+    borderColor: colors.l_grey,
+  },
+  header: {
+    backgroundColor: "#f0f0f0",
+    borderBottomWidth: 2,
+    borderColor: colors.l_grey,
+  },
+  column: {
+    padding: 10,
+    minWidth: 200,
+    flex: 1,
+    justifyContent: "center",
+    // alignItems: "center",
+  },
+  resultData: {
+    fontFamily: "Regular",
   },
 });

@@ -3,7 +3,10 @@ import { Image, Text, View } from "react-native";
 import { colors } from "../assets/themes/colors";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
-import { heightPercentageToDP } from "react-native-responsive-screen";
+import {
+  heightPercentageToDP as hp,
+  widthPercentageToDP as wp,
+} from "react-native-responsive-screen";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Fontisto } from "@expo/vector-icons";
 import D_Stack from "../screens/home/dashboard/D_Stack";
@@ -11,7 +14,7 @@ import P_Stack from "../screens/home/profile/P_Stack";
 import M_Stack from "../screens/home/message/M_Stack";
 
 const ClientTab = createBottomTabNavigator();
-const iconSize = 25;
+const iconSize = wp(6);
 const TabLabel = ({ label, isFocused, image }) => (
   <View
     style={{
@@ -20,11 +23,11 @@ const TabLabel = ({ label, isFocused, image }) => (
       // justifyContent: "flex-end",
       backgroundColor: isFocused ? colors.accent : "transparent",
       paddingHorizontal: 12,
-      paddingVertical: 5,
+      paddingVertical: 6,
       borderRadius: 10,
-      width: "80%",
+      width: "90%",
       justifyContent: "center",
-      marginBottom: 5,
+      marginBottom: hp(0.7),
     }}
   >
     <View
@@ -48,10 +51,9 @@ const TabLabel = ({ label, isFocused, image }) => (
     <Text
       style={{
         fontFamily: isFocused ? "Bold" : "Bold",
-        fontSize: heightPercentageToDP(1.4),
+        fontSize: hp(1.4),
         color: isFocused ? colors.white : colors.white,
-        marginLeft:5
-
+        marginLeft: 5,
       }}
     >
       {label}
@@ -63,7 +65,7 @@ export default function BottomNavigation() {
   const getRouteName = (route) => {
     const routeName = getFocusedRouteNameFromRoute(route);
     if (
-      routeName?.includes("ViewOrderDetail") ||
+      routeName?.includes("ChatScreen") ||
       routeName?.includes("ThankYouScreen")
     ) {
       return "none";
@@ -78,13 +80,6 @@ export default function BottomNavigation() {
         tabBarActiveBackgroundColor: colors.secondary,
         tabBarInactiveBackgroundColor: colors.secondary,
         // tabBarStyle: { position: 'absolute',zIndex:99,backgroundColor:'red',borderRadius:100,margin:100},
-        tabBarStyle: [
-          {
-            display: "flex",
-            backgroundColor: "red",
-          },
-          null,
-        ],
         tabBarIcon: () => null, // Explicitly set tabBarIcon to null to remove default icons
       }}
     >
@@ -92,7 +87,7 @@ export default function BottomNavigation() {
         name="D_Stack"
         component={D_Stack}
         options={({ route }) => ({
-          tabBarStyle: { display: getRouteName(route) },
+          tabBarStyle: { display: getRouteName(route), height: hp(6) },
           tabBarLabel: ({ focused }) => (
             <TabLabel
               label="Dashboard"
@@ -106,9 +101,13 @@ export default function BottomNavigation() {
         name="M_Stack"
         component={M_Stack}
         options={({ route }) => ({
-          tabBarStyle: { display: getRouteName(route) },
+          tabBarStyle: { display: getRouteName(route), height: hp(6) },
           tabBarLabel: ({ focused }) => (
-            <TabLabel label="Messanger" isFocused={focused} image={require("../assets/images/bottom_icons/message.png")}/>
+            <TabLabel
+              label="Messanger"
+              isFocused={focused}
+              image={require("../assets/images/bottom_icons/message.png")}
+            />
           ),
         })}
       />
@@ -116,9 +115,13 @@ export default function BottomNavigation() {
         name="P_Stack"
         component={P_Stack}
         options={({ route }) => ({
-          tabBarStyle: { display: getRouteName(route) },
+          tabBarStyle: { display: getRouteName(route), height: hp(6) },
           tabBarLabel: ({ focused }) => (
-            <TabLabel label="Profile" isFocused={focused} image={require("../assets/images/bottom_icons/profile.png")}/>
+            <TabLabel
+              label="Profile"
+              isFocused={focused}
+              image={require("../assets/images/bottom_icons/profile.png")}
+            />
           ),
         })}
       />

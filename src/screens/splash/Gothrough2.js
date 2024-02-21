@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, Image } from "react-native";
 import React from "react";
 import { colors } from "../../assets/themes/colors";
-import { heightPercentageToDP as hp } from "react-native-responsive-screen";
+import { heightPercentageToDP as hp, widthPercentageToDP as wp } from "react-native-responsive-screen";
 export default function Gothrough2() {
   return (
     <View>
@@ -54,16 +54,14 @@ const styles = StyleSheet.create({
   text: {
     color: colors.white,
     fontFamily: "Bold",
-    fontSize: 20,
-
+    fontSize: wp(4.5),
+    // textAlign: "center",
   },
   DescriptionText: {
-    // textAlign: "center",
-    fontSize: 18,
-    color:colors.white,
-
-    marginTop: 20,
+    fontSize: wp(4),
+    marginTop: hp(2.5),
     fontFamily: "Regular",
+    color: colors.white,
   },
   textBox:{
     marginTop:hp(20),

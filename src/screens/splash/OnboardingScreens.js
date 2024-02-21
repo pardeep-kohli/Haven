@@ -163,23 +163,38 @@ export default class OnboardingScreens extends Component {
                   backgroundColor: colors.secondary,
                   position: "absolute",
                   bottom: -15,
-                  right: 20,
+                  right: 0,
                   flexDirection: "row",
-                  paddingVertical:10,
-                  paddingHorizontal:15,
-                  alignItems:'center',
-                  borderRadius:25
+                  paddingVertical: 10,
+                  paddingHorizontal: 15,
+                  alignItems: "center",
+                  borderRadius: 25,
                 }}
               >
-                <Text style={{color:colors.white,fontFamily:'SemiBold',marginRight:10}}>Next</Text>
-                <View style={{height:25,width:25,backgroundColor:colors.accent,borderRadius:15,justifyContent:'center', alignItems:'center'}}>
-
-                <AntDesign
-              
-              name={"arrowright"}
-              size={20}
-              color={colors.white}
-            />
+                <Text
+                  style={{
+                    color: colors.white,
+                    fontFamily: "SemiBold",
+                    marginRight: 10,
+                  }}
+                >
+                  Next
+                </Text>
+                <View
+                  style={{
+                    height: 25,
+                    width: 25,
+                    backgroundColor: colors.accent,
+                    borderRadius: 15,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <AntDesign
+                    name={"arrowright"}
+                    size={20}
+                    color={colors.white}
+                  />
                 </View>
               </TouchableOpacity>
             </View>
@@ -208,13 +223,13 @@ const styles = StyleSheet.create({
     // left: 10,
   },
   dots: {
-    width: hp(2),
-    height: hp(2),
-    borderRadius: hp(2.5) / 2.0,
+    width: hp(1.5),
+    height: hp(1.5),
+    borderRadius: hp(1.5) / 2,
     marginRight: 5,
     borderWidth: 1.5,
     borderColor: colors.white,
-    left: 10,
+    // left: 10,
     top: 5,
   },
   skip_button: {
@@ -225,8 +240,8 @@ const styles = StyleSheet.create({
     // alignSelf:'flex-end'
   },
   skip_text: {
-    fontSize: 16,
-    color: colors.violet,
+    fontSize: hp(1.8),
+    color: colors.black,
     fontFamily: "Medium",
   },
   paginationStyle: {

@@ -4,6 +4,7 @@ export const colors = {
   secondary: "#5B7E9C",
   tertiary: "#d1d5db",
   accent: "#81A342",
+  accent_10: "#81A34210",
   tint: "#f9fafb",
   grey: "#6F7F8C",
   l_grey: "#6F7F8C30",
@@ -14,4 +15,5 @@ export const colors = {
   orange: "#F8A22A",
   pink: "#FF3A6E",
   brown: "#630F0F",
+  red:"#C70039"
 };

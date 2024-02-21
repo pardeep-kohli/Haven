@@ -4,7 +4,7 @@ import {
   TransitionPresets,
 } from "@react-navigation/stack";
 import Dashboard from "./Dashboard";
-
+import ViewContracts from "../../drawer/Contracts/ViewContracts";
 const Stack = createStackNavigator();
 export default function D_Stack() {
   return (
@@ -16,6 +16,7 @@ export default function D_Stack() {
       }}
     >
       <Stack.Screen name="Dashboard" component={Dashboard} />
+      <Stack.Screen name="ViewContracts" component={ViewContracts} />
     </Stack.Navigator>
   );
 }

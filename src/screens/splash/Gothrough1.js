@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, Image } from "react-native";
 import React from "react";
 import { colors } from "../../assets/themes/colors";
-import { heightPercentageToDP as hp } from "react-native-responsive-screen";
+import { heightPercentageToDP as hp, widthPercentageToDP as wp} from "react-native-responsive-screen";
 export default function Gothrough1() {
   return (
     <View>
@@ -20,14 +20,15 @@ export default function Gothrough1() {
         />
       </View>
       <View style={styles.textBox}>
-      <View style={{}}>
-        <Text style={styles.text}>Welcome To Haven Contracting</Text>
-      </View>
-      <View style={{}}>
-        <Text style={styles.DescriptionText} >
-        Transforming Visions into Structures with Precision, Dedication, and Expertise. Building Tomorrow, Today.
-        </Text>
-      </View>
+        <View style={{}}>
+          <Text style={styles.text}>Welcome To Haven Contracting</Text>
+        </View>
+        <View style={{}}>
+          <Text style={styles.DescriptionText}>
+            Transforming Visions into Structures with Precision, Dedication, and
+            Expertise. Building Tomorrow, Today.
+          </Text>
+        </View>
       </View>
     </View>
   );
@@ -54,17 +55,17 @@ const styles = StyleSheet.create({
   text: {
     color: colors.white,
     fontFamily: "Bold",
-    fontSize: 20,
+    fontSize: wp(4.5),
     // textAlign: "center",
   },
   DescriptionText: {
-    fontSize: 18,
-    marginTop: 20,
+    fontSize: wp(4),
+    marginTop: hp(2.5),
     fontFamily: "Regular",
-    color:colors.white,
+    color: colors.white,
   },
-  textBox:{
-    marginTop:hp(20),
-    paddingHorizontal:15
-  }
+  textBox: {
+    marginTop: hp(20),
+    paddingHorizontal: 15,
+  },
 });

@@ -81,7 +81,7 @@ export default function Input({
           style={[
             styles.input,
             {
-              color: colors.secondary,
+              color: colors.accent,
             },
           ]}
           secureTextEntry={hidePassword}
@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
 
   },
   error: {
-    color: colors.accent,
+    color: colors.red,
     fontSize: hp(1.5),
     marginTop: hp(0.5),
   },

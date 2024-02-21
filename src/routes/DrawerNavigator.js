@@ -32,7 +32,8 @@ import Roles from "../screens/drawer/Roles";
 import Services from "../screens/drawer/Services";
 import SystemSetting from "../screens/drawer/SystemSetting";
 import Users from "../screens/drawer/Users";
-const labelSize = hp(1.6)
+const labelSize = hp(1.5)
+const iconSize=hp(1.8)
 function CustomDrawerContent(props) {
   const navigation = useNavigation();
   const dispatch = useDispatch();
@@ -128,6 +129,7 @@ const DrawerNavigator = () => {
         headerShown: false,
         swipeEdgeWidth: 0,
         drawerActiveBackgroundColor: colors.accent,
+        
       }}
       drawerContent={(props) => <CustomDrawerContent {...props} />}
     >
@@ -161,8 +163,8 @@ const DrawerNavigator = () => {
                 source={require("../assets/images/drawer_images/dashboard.png")}
                 style={{
                   tintColor: focused ? colors.accent : colors.grey,
-                  height: 20,
-                  width: 20,
+                  height: iconSize,
+                  width: iconSize,
                 }}
               />
             </View>
@@ -199,8 +201,8 @@ const DrawerNavigator = () => {
                 source={require("../assets/images/drawer_images/users.png")}
                 style={{
                   tintColor: focused ? colors.accent : colors.grey,
-                  height: 20,
-                  width: 20,
+                  height: iconSize,
+                  width: iconSize,
                 }}
               />
             </View>
@@ -236,8 +238,8 @@ const DrawerNavigator = () => {
                 source={require("../assets/images/drawer_images/roles.png")}
                 style={{
                   tintColor: focused ? colors.accent : colors.grey,
-                  height: 20,
-                  width: 20,
+                  height: iconSize,
+                  width: iconSize,
                 }}
               />
             </View>
@@ -273,8 +275,8 @@ const DrawerNavigator = () => {
                 source={require("../assets/images/drawer_images/gc_list.png")}
                 style={{
                   tintColor: focused ? colors.accent : colors.grey,
-                  height: 20,
-                  width: 20,
+                  height: iconSize,
+                  width: iconSize,
                 }}
               />
             </View>
@@ -285,6 +287,7 @@ const DrawerNavigator = () => {
         name="Services"
         component={Services}
         options={{
+          
           drawerLabel: ({ focused, color }) => (
             <Text
               style={{
@@ -310,8 +313,8 @@ const DrawerNavigator = () => {
                 source={require("../assets/images/drawer_images/services.png")}
                 style={{
                   tintColor: focused ? colors.accent : colors.grey,
-                  height: 20,
-                  width: 20,
+                  height: iconSize,
+                  width: iconSize,
                 }}
               />
             </View>
@@ -348,8 +351,8 @@ const DrawerNavigator = () => {
                 source={require("../assets/images/drawer_images/invoices.png")}
                 style={{
                   tintColor: focused ? colors.accent : colors.grey,
-                  height: 20,
-                  width: 20,
+                  height: iconSize,
+                  width: iconSize,
                 }}
               />
             </View>
@@ -385,15 +388,15 @@ const DrawerNavigator = () => {
                 source={require("../assets/images/drawer_images/contracts.png")}
                 style={{
                   tintColor: focused ? colors.accent : colors.grey,
-                  height: 20,
-                  width: 20,
+                  height: iconSize,
+                  width: iconSize,
                 }}
               />
             </View>
           ),
         }}
       />
-      <Drawer.Screen
+      {/* <Drawer.Screen
         name="Messenger"
         component={Messenger}
         options={{
@@ -422,14 +425,14 @@ const DrawerNavigator = () => {
                 source={require("../assets/images/drawer_images/messenger.png")}
                 style={{
                   tintColor: focused ? colors.accent : colors.grey,
-                  height: 20,
-                  width: 20,
+                  height: iconSize,
+                  width: iconSize,
                 }}
               />
             </View>
           ),
         }}
-      />
+      /> */}
       <Drawer.Screen
         name="SystemSetting"
         component={SystemSetting}
@@ -459,8 +462,8 @@ const DrawerNavigator = () => {
                 source={require("../assets/images/drawer_images/system_setting.png")}
                 style={{
                   tintColor: focused ? colors.accent : colors.grey,
-                  height: 20,
-                  width: 20,
+                  height: iconSize,
+                  width: iconSize,
                 }}
               />
             </View>
@@ -500,7 +503,7 @@ const styles = StyleSheet.create({
     fontFamily: "Bold",
   },
   avatar: {
-    marginHorizontal: 20,
+    marginHorizontal: iconSize,
   },
   icons: {
     width: 30,
@@ -511,7 +514,7 @@ const styles = StyleSheet.create({
   HomeSection: {
     borderBottomColor: colors.light_grey,
     borderBottomWidth: 0.4,
-    paddingVertical: 20,
+    paddingVertical: iconSize,
     marginBottom: 10,
   },
 });
